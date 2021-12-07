@@ -71,44 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/12/07/My-New-Post/" class="article-date">
-  <time class="dt-published" datetime="2021-12-07T10:58:31.000Z" itemprop="datePublished">2021-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/12/07/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/07/My-New-Post/" data-id="ckwvzp2rv0000v4evgxd8b6ry" data-title="My New Post" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-hello" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/12/07/hello/" class="article-date">
@@ -135,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/07/hello/" data-id="ckwvznyjr00001oev7n323h5j" data-title="hello" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/07/hello/" data-id="ckwvzsmh20002nsevcqbz1wll" data-title="hello" class="article-share-link">Share</a>
       
       
       
@@ -186,7 +148,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/07/hello-world/" data-id="ckwvzm61q0000m8ev5ckm7mca" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/07/hello-world/" data-id="ckwvzsmh00001nsev89m13jo0" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-FFmpeg任意文件读取复现（CVE-2016-1897）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-11-18T04:10:14.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/">FFmpeg任意文件读取复现（CVE-2016-1897）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>影响范围<br>3.2.2 3.2.5 3.1.2 2.6.8</p>
+<p>不受影响的版本<br>3.3.2</p>
+<p>漏洞原理<br>在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。</p>
+<p>这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两个的区别在于读取文件的行数，CVE-2016-1897只能读取文件的第一行，而CVE-2016-1898可以读取文件任意行，原理基本一样。</p>
+<p>ffmpeg可处理HLS播放列表，而播放列表中已知可包含外部文件的援引。攻击者可以借由该特性，利用avi文件中的GAB2字幕块，可以通过XBIN codec获取到视频转换网站的本地文件。</p>
+<p>Exp<br>github.com/neex/ffmpeg-avi-m3u-xbin</p>
+<p>执行效果<br><img src="/images/test.png"></p>
+<p>漏洞危害</p>
+<p>该漏洞可导致读取本地任意文件，危害较大,Google,Yahoo,Youtube等门户、视听网站以及支持流转码服务的业务已被曝出存在该漏洞。国内支持流转码的网站也可能有存在该漏洞的风险。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/" data-id="ckwvzsmgw0000nsev54f4egma" data-title="FFmpeg任意文件读取复现（CVE-2016-1897）" class="article-share-link">Share</a>
       
       
       
@@ -216,7 +225,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
     </div>
   </div>
 
@@ -229,15 +238,15 @@
       <ul>
         
           <li>
-            <a href="/2021/12/07/My-New-Post/">My New Post</a>
-          </li>
-        
-          <li>
             <a href="/2021/12/07/hello/">hello</a>
           </li>
         
           <li>
             <a href="/2021/12/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/">FFmpeg任意文件读取复现（CVE-2016-1897）</a>
           </li>
         
       </ul>
