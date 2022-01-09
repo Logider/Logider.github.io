@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>今日复盘2022-01-09</title>
+    <link href="/2022/01/09/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <url>/2022/01/09/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89%20-%20%E5%89%AF%E6%9C%AC/</url>
+    
+    <content type="html"><![CDATA[<p>今日复盘：</p><p>今天原本是很想跟某位小姑娘去玩剧本杀的，但奈何考试将近，小小遗憾。</p><p>中午跟一块考试的同事中午交流了下，吃了顿饭，越来越感觉说考试内容不难，不过鉴于之前从没考过这个，多少还是有点小压力。兴许到了考场就好了。<br />下午好好的把之前的东西过了一下，发现有些payload不太容易记到脑子里，或许多敲敲键盘会好。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>FFmpeg任意文件读取复现（CVE-2016-1897）</title>
     <link href="/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/"/>
     <url>/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/</url>
