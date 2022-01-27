@@ -4,12 +4,37 @@
   
   
   <entry>
+    <title>2022-01-27学习</title>
+    <link href="/2022/01/27/2022-1-27%E5%A4%8D%E7%9B%98/"/>
+    <url>/2022/01/27/2022-1-27%E5%A4%8D%E7%9B%98/</url>
+    
+    <content type="html"><![CDATA[<p>今天通过学习，掌握了hexo创建标签页的方法：<br />相关链接：<a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">https://blog.csdn.net/weixin_33857230/article/details/91474562</a><br />大致原理如下：</p><p>1.创建分类选项<br />hexo new page categories    最后这个categories代表分类的名称<br />创建好后会在categories名称的文件夹内新建个index.md的文档</p><p>2.添加type:&quot;categories&quot;到内容中，代表该页面的类型为分类<br />—<br />title: categories<br />date: 2022-01-27 20:23:18<br />type: categories<br />—</p><p>3.每次写文章时在开头部分增加categories:分类名 代表文章划分到该分类<br />—<br />title: 标题名称<br />date: 2022-01-27 20:23:18<br />categories：复盘<br />—</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>复盘</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>FFmpeg任意文件读取复现（CVE-2016-1897）</title>
     <link href="/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/"/>
     <url>/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/</url>
     
     <content type="html"><![CDATA[<p><strong>影响范围</strong><br />3.2.2 3.2.5 3.1.2 2.6.8</p><p><strong>不受影响的版本</strong><br />3.3.2</p><p><strong>漏洞原理</strong><br />在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。</p><p>这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两个的区别在于读取文件的行数，CVE-2016-1897只能读取文件的第一行，而CVE-2016-1898可以读取文件任意行，原理基本一样。</p><p>ffmpeg可处理HLS播放列表，而播放列表中已知可包含外部文件的援引。攻击者可以借由该特性，利用avi文件中的GAB2字幕块，可以通过XBIN codec获取到视频转换网站的本地文件。</p><p><strong>Exp</strong><br /><a href="http://github.com/neex/ffmpeg-avi-m3u-xbin">github.com/neex/ffmpeg-avi-m3u-xbin</a></p><p><strong>执行效果</strong><br /><img src="/images/test.png" alt="" /></p><p><strong>漏洞危害</strong></p><p>该漏洞可导致读取本地任意文件，危害较大,Google,Yahoo,Youtube等门户、视听网站以及支持流转码服务的业务已被曝出存在该漏洞。国内支持流转码的网站也可能有存在该漏洞的风险。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
     
     
     <tags>
