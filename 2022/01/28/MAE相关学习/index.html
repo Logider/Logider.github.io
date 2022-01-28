@@ -16,22 +16,23 @@
   <meta name="description" content="">
   <meta name="author" content="Logge">
   <meta name="keywords" content="">
-  <meta name="description" content="影响范围 3.2.2 3.2.5 3.1.2 2.6.8 不受影响的版本 3.3.2 漏洞原理 在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。 这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两">
+  <meta name="description" content="今天从公众号中了解到有关去除马赛克工具的相关内容，觉得有趣，固分享。 相关出处 该工具由何恺明大神编写，相关论文可参考： https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2111.06377.pdf 工具原理 MAE工具会选取马赛克图像中正常的部分进行编码变换，深度学习需要大量的标注数据来完成模型的训练，但是NLP可以通过自监督预训练来避免大量标注数据的依赖。例如GPT的自回归语言建模和BERT中的m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FFmpeg任意文件读取复现（CVE-2016-1897）">
-<meta property="og:url" content="http://example.com/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/index.html">
+<meta property="og:title" content="去除马赛克神器MAE相关学习">
+<meta property="og:url" content="http://example.com/2022/01/28/MAE%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="四两">
-<meta property="og:description" content="影响范围 3.2.2 3.2.5 3.1.2 2.6.8 不受影响的版本 3.3.2 漏洞原理 在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。 这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两">
+<meta property="og:description" content="今天从公众号中了解到有关去除马赛克工具的相关内容，觉得有趣，固分享。 相关出处 该工具由何恺明大神编写，相关论文可参考： https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2111.06377.pdf 工具原理 MAE工具会选取马赛克图像中正常的部分进行编码变换，深度学习需要大量的标注数据来完成模型的训练，但是NLP可以通过自监督预训练来避免大量标注数据的依赖。例如GPT的自回归语言建模和BERT中的m">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/test.png">
-<meta property="article:published_time" content="2021-11-18T04:10:14.000Z">
-<meta property="article:modified_time" content="2022-01-27T12:29:17.796Z">
+<meta property="og:image" content="http://example.com/images/mae.png">
+<meta property="og:image" content="http://example.com/images/mae-test.png">
+<meta property="article:published_time" content="2022-01-28T08:10:14.000Z">
+<meta property="article:modified_time" content="2022-01-28T08:32:50.936Z">
 <meta property="article:author" content="Logge">
-<meta property="article:tag" content="&lt;span class&#x3D;&quot;note note-primary&quot;&gt;FFmpeg&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;note note-warning&quot;&gt;CVE&lt;&#x2F;span&gt;">
+<meta property="article:tag" content="&lt;span class&#x3D;&quot;note note-primary&quot;&gt;机器学习&lt;&#x2F;span&gt;&lt;span class&#x3D;&quot;note note-primary&quot;&gt;马赛克&lt;&#x2F;span&gt;">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/test.png">
+<meta name="twitter:image" content="http://example.com/images/mae.png">
   
-  <title>FFmpeg任意文件读取复现（CVE-2016-1897） - 四两</title>
+  <title>去除马赛克神器MAE相关学习 - 四两</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -153,7 +154,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="FFmpeg任意文件读取复现（CVE-2016-1897）">
+            <span class="h2" id="subtitle" title="去除马赛克神器MAE相关学习">
               
             </span>
 
@@ -163,8 +164,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-18 12:10" pubdate>
-        2021年11月18日 中午
+      <time datetime="2022-01-28 16:10" pubdate>
+        2022年1月28日 下午
       </time>
     </span>
   
@@ -174,7 +175,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      488 字
+      1.7k 字
     </span>
   
 
@@ -183,7 +184,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      5 分钟
     </span>
   
 
@@ -220,29 +221,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">FFmpeg任意文件读取复现（CVE-2016-1897）</h1>
+            <h1 style="display: none">去除马赛克神器MAE相关学习</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：20 小时前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body">
-              <p><strong>影响范围</strong><br />
-3.2.2 3.2.5 3.1.2 2.6.8</p>
-<p><strong>不受影响的版本</strong><br />
-3.3.2</p>
-<p><strong>漏洞原理</strong><br />
-在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。</p>
-<p>这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两个的区别在于读取文件的行数，CVE-2016-1897只能读取文件的第一行，而CVE-2016-1898可以读取文件任意行，原理基本一样。</p>
-<p>ffmpeg可处理HLS播放列表，而播放列表中已知可包含外部文件的援引。攻击者可以借由该特性，利用avi文件中的GAB2字幕块，可以通过XBIN codec获取到视频转换网站的本地文件。</p>
-<p><strong>Exp</strong><br />
-<a target="_blank" rel="noopener" href="http://github.com/neex/ffmpeg-avi-m3u-xbin">github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
-<p><strong>执行效果</strong><br />
-<img src="/images/test.png" srcset="/img/loading.gif" lazyload alt="" /></p>
-<p><strong>漏洞危害</strong></p>
-<p>该漏洞可导致读取本地任意文件，危害较大,Google,Yahoo,Youtube等门户、视听网站以及支持流转码服务的业务已被曝出存在该漏洞。国内支持流转码的网站也可能有存在该漏洞的风险。</p>
+              <p>今天从公众号中了解到有关去除马赛克工具的相关内容，觉得有趣，固分享。</p>
+<p><strong>相关出处</strong></p>
+<p>该工具由何恺明大神编写，相关论文可参考：<br />
+<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2111.06377.pdf">https://arxiv.org/pdf/2111.06377.pdf</a></p>
+<p><strong>工具原理</strong><br />
+MAE工具会选取马赛克图像中正常的部分进行编码变换，深度学习需要大量的标注数据来完成模型的训练，但是NLP可以通过自监督预训练来避免大量标注数据的依赖。例如GPT的自回归语言建模和BERT中的masked autoencoding的解决方案。这两种方案通过删除一部分数据，并且学习预测删除的内容。</p>
+<p>masked autoencoder是一种更为通用的去噪自动编码器（denoising autoencoders），可以在视觉任务中使用。但是在视觉中autoencoder方法的研究进展相比NLP较少。那么到底是什么让masked autoencoder在视觉任务和语言任务之间有所不同呢？</p>
+<p>作者提出了几点看法：</p>
+<p><em><strong>网路架构不同。</strong></em><br />
+视觉任务中常用卷积网络，将常用的mask token与positional embeddings集成到卷积网路中很难实现。随着ViT的引入，这种情况得到改善。</p>
+<p><em><strong>语言和视觉任务的信息密度不同</strong></em><br />
+语言具有高度的语义信息特征，而视觉图像具有高度冗余的特点，例如，缺失的patch可以从相邻的patch中恢复。为解决这种情况，提出直接  mask大部分随机patch来降低冗余信息。</p>
+<p><em><strong>自编码器的解码器将潜在表示映射回输入，在重建文本和图像之间起着不同的作用。</strong></em> 在语言任务中，解码器的输出预测包含缺失词语的大量语义信息。而视觉中，解码器为了重构像素，因此包含的多是low-level的信息。因此，解码器的设计在决定所学习到的隐式特征表示方面所包含的语义信息水平方面起着关键作用。<br />
+此图为MAE的模型架构：</p>
+<p><img src="/images/mae.png" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><em><strong>MAE是一个非对称的编码器-解码器结构</strong></em><br />
+从输入图像中随机mask部分patch，利用解码器在像素空间中重构丢失的patch。编码器仅仅对可见的patch进行计算，解码器是一个轻量化的网络，在解码器中才会使用mask token与编码器的输出一同重构像素，这样计算量大大减小。此时非常高的mask率（例如75%）可以在优化精度的同时，使得总体的预训练时间减少3倍或者更多，同时较少显存消耗，使得MAE可以轻松扩展到大模型。</p>
+<p><em><strong>MAE编码器</strong></em><br />
+编码器采用ViT，仅仅用于可见的patch来进行计算。与标准ViT不同的是本文的编码器只需要在整个集合的一小部分（可见的patch，例如25%）上运行 。因此能够训练非常大的编码器。</p>
+<p><em><strong>MAE解码器</strong></em><br />
+解码器的输入信息由编码器输出的编码向量和mask token组成。每个mask token都是一个共享的、可学习的向量，表示要预测的缺失patch。作者给所有token添加positional embedding；如果不加入这一点，mask token将没有相应patch的位置信息。</p>
+<p>MAE解码器在预训练期间用于执行图像重建任务（只有编码器生成用于识别的图像表示）。因此，解码器架构可以以独立于编码器设计。作者用轻量化的解码器进行实验。例如，解码器处理每个token的计算量不到编码器的10%。通过这种非对称设计，所有token仅由轻量级解码器处理，这大大减少了预训练时间。</p>
+<p><em><strong>重构目标</strong></em><br />
+MAE通过预测每个mask patch的像素值来重建输入。解码器输出中的每个元素都是代表一个patch的像素值向量。解码器的最后一层是一个线性投影，其输出的通道数等于一个patch中像素值的数量。解码器的输出reshape以后形成重构图像。计算重建图像和原始图像之间的均方差损失（MSE） 。其中仅仅计算masked patch上的损失，类似于BERT。</p>
+<p><strong>MAE工具地址</strong><br />
+Github：<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/mae">https://github.com/facebookresearch/mae</a><br />
+作者提供了部署好的colab进行展示：<br />
+<a target="_blank" rel="noopener" href="https://colab.research.google.com/github/facebookresearch/mae/blob/main/demo/mae_visualize.ipynb#scrollTo=12251916-7bf0-4ee5-ba7d-3dea4441d0a4">https://colab.research.google.com/github/facebookresearch/mae/blob/main/demo/mae_visualize.ipynb#scrollTo=12251916-7bf0-4ee5-ba7d-3dea4441d0a4</a></p>
+<p>这是我使用colab进行分析的对比图：</p>
+<p><img src="/images/mae-test.png" srcset="/img/loading.gif" lazyload alt="" /></p>
 
             </div>
             <hr>
@@ -260,7 +277,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/span-class-note-note-primary-FFmpeg-span-span-class-note-note-warning-CVE-span/"><span class="note note-primary">FFmpeg</span> <span class="note note-warning">CVE</span></a>
+                      <a class="hover-with-bg" href="/tags/span-class-note-note-primary-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-span-span-class-note-note-primary-%E9%A9%AC%E8%B5%9B%E5%85%8B-span/"><span class="note note-primary">机器学习</span><span class="note note-primary">马赛克</span></a>
                     
                   </div>
                 
@@ -277,15 +294,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/27/2022-1-27%E5%A4%8D%E7%9B%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2022-01-27学习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/01/28/2022-1-28%E5%A4%8D%E7%9B%98/">
+                        <span class="hidden-mobile">2022-01-28复盘</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
