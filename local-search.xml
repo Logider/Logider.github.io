@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>小红书实践心得</title>
+    <link href="/2022/05/06/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%AE%9E%E8%B7%B5%E5%BF%83%E5%BE%97/"/>
+    <url>/2022/05/06/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%AE%9E%E8%B7%B5%E5%BF%83%E5%BE%97/</url>
+    
+    <content type="html"><![CDATA[<p>大家好，我是四两<br />一只爱破圈的白帽黑客</p><p>平常呢，比较爱玩，爱思考，也爱钻研<br />任何有知识有深度的领域都会让我感觉到多巴胺爆炸，让我有一探究竟的想法<br />这次呢，轮到小红书了</p><p>说起来，我算是完全萌新，运营啊，ip啊这种概念都只是在影视作品中听说过，<br />没有亲身实践的经历，所以感觉发的作品吧质量有限，离预期也很远。</p><p>最开始呢，我想搞一个黑客技术类的方向，聊聊攻防相关的生活、网络攻击大概是怎样、电脑、服务器如何防护等等<br /><img src="/images/tech.jpg" alt="" /></p><p><img src="/images/tech2.jpg" alt="" /></p><p>参考技术网站呢，画风类似：<br /><a href="https://www.1aq.com/?sc=b">https://www.1aq.com/?sc=b</a></p><p><img src="/images/wljd.jpg" alt="" /></p><p>不过考虑到有些攻击方式要是讲很细的话容易犯事儿戴镯子，再加上懒吧，账号就愈发生活化了。<br />发了几条生活状态吧，感觉阅读量、点赞评论都效果平平<br />后来在网上看了一篇文章，有感写了一篇《网络暴力何时了》，吐槽了一堆看到的社会问题，发现反而成账号的爆款了。<br />到目前是888阅读量、19点赞、28点评<br />我就想着吧，可能是这个话题吧，相对于专业号那种受众模式，生活号那种泛泛的话题吧，读者可能更有参与感<br />每个人都可以发表自己的想法、观点进行互动，同时话题本身又有共鸣感。</p><p>基于这个状态，我想到了一种模式，是不是可以写一种开放性互动性的题材呢，让读者通过评论方式参与到文章创作本身，让他们更有参与感，会不会更好呢？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>复盘</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>去除马赛克神器MAE相关学习</title>
     <link href="/2022/01/28/MAE%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/"/>
     <url>/2022/01/28/MAE%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/</url>
@@ -34,25 +53,6 @@
     <url>/2022/01/28/2022-1-28%E5%A4%8D%E7%9B%98/</url>
     
     <content type="html"><![CDATA[<p>今天，我又想她了<br />学习的思绪总会时不时被困扰着<br />想她说的话，想她所做的事<br />也许我应该更深层次的了解她<br />要让自己更加强大才行<br />加油，努力</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>复盘</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>2022-01-27学习</title>
-    <link href="/2022/01/27/2022-1-27%E5%A4%8D%E7%9B%98/"/>
-    <url>/2022/01/27/2022-1-27%E5%A4%8D%E7%9B%98/</url>
-    
-    <content type="html"><![CDATA[<p>今天通过学习，掌握了hexo创建标签页的方法：<br />相关链接：<a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">https://blog.csdn.net/weixin_33857230/article/details/91474562</a><br />大致原理如下：</p><p>1.创建分类选项<br />hexo new page categories    最后这个categories代表分类的名称<br />创建好后会在categories名称的文件夹内新建个index.md的文档</p><p>2.添加type:&quot;categories&quot;到内容中，代表该页面的类型为分类<br />—<br />title: categories<br />date: 2022-01-27 20:23:18<br />type: categories<br />—</p><p>3.每次写文章时在开头部分增加categories:分类名 代表文章划分到该分类<br />—<br />title: 标题名称<br />date: 2022-01-27 20:23:18<br />categories：复盘<br />—</p>]]></content>
     
     
     <categories>

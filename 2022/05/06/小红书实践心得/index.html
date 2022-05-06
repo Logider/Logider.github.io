@@ -16,22 +16,23 @@
   <meta name="description" content="">
   <meta name="author" content="Logge">
   <meta name="keywords" content="">
-  <meta name="description" content="影响范围 3.2.2 3.2.5 3.1.2 2.6.8 不受影响的版本 3.3.2 漏洞原理 在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。 这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两">
+  <meta name="description" content="大家好，我是四两 一只爱破圈的白帽黑客 平常呢，比较爱玩，爱思考，也爱钻研 任何有知识有深度的领域都会让我感觉到多巴胺爆炸，让我有一探究竟的想法 这次呢，轮到小红书了 说起来，我算是完全萌新，运营啊，ip啊这种概念都只是在影视作品中听说过， 没有亲身实践的经历，所以感觉发的作品吧质量有限，离预期也很远。 最开始呢，我想搞一个黑客技术类的方向，聊聊攻防相关的生活、网络攻击大概是怎样、电脑、服务器如何">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FFmpeg任意文件读取复现（CVE-2016-1897）">
-<meta property="og:url" content="http://example.com/2021/11/18/FFmpeg%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%A4%8D%E7%8E%B0%EF%BC%88CVE-2016-1897%EF%BC%89/index.html">
+<meta property="og:title" content="小红书实践心得">
+<meta property="og:url" content="http://example.com/2022/05/06/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%AE%9E%E8%B7%B5%E5%BF%83%E5%BE%97/index.html">
 <meta property="og:site_name" content="四两">
-<meta property="og:description" content="影响范围 3.2.2 3.2.5 3.1.2 2.6.8 不受影响的版本 3.3.2 漏洞原理 在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。 这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两">
+<meta property="og:description" content="大家好，我是四两 一只爱破圈的白帽黑客 平常呢，比较爱玩，爱思考，也爱钻研 任何有知识有深度的领域都会让我感觉到多巴胺爆炸，让我有一探究竟的想法 这次呢，轮到小红书了 说起来，我算是完全萌新，运营啊，ip啊这种概念都只是在影视作品中听说过， 没有亲身实践的经历，所以感觉发的作品吧质量有限，离预期也很远。 最开始呢，我想搞一个黑客技术类的方向，聊聊攻防相关的生活、网络攻击大概是怎样、电脑、服务器如何">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/test.png">
-<meta property="article:published_time" content="2021-11-18T04:10:14.000Z">
-<meta property="article:modified_time" content="2022-01-28T09:08:36.923Z">
+<meta property="og:image" content="http://example.com/images/tech.jpg">
+<meta property="og:image" content="http://example.com/images/tech2.jpg">
+<meta property="og:image" content="http://example.com/images/wljd.jpg">
+<meta property="article:published_time" content="2022-05-06T04:25:55.000Z">
+<meta property="article:modified_time" content="2022-05-06T07:11:45.505Z">
 <meta property="article:author" content="Logge">
-<meta property="article:tag" content="&lt;span class&#x3D;&quot;note note-primary&quot;&gt;FFmpeg&lt;&#x2F;span&gt; &lt;span class&#x3D;&quot;note note-warning&quot;&gt;CVE&lt;&#x2F;span&gt;">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/test.png">
+<meta name="twitter:image" content="http://example.com/images/tech.jpg">
   
-  <title>FFmpeg任意文件读取复现（CVE-2016-1897） - 四两</title>
+  <title>小红书实践心得 - 四两</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -153,7 +154,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="FFmpeg任意文件读取复现（CVE-2016-1897）">
+            <span class="h2" id="subtitle" title="小红书实践心得">
               
             </span>
 
@@ -163,8 +164,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-18 12:10" pubdate>
-        2021年11月18日 中午
+      <time datetime="2022-05-06 12:25" pubdate>
+        2022年5月6日 中午
       </time>
     </span>
   
@@ -174,7 +175,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      488 字
+      528 字
     </span>
   
 
@@ -220,29 +221,35 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">FFmpeg任意文件读取复现（CVE-2016-1897）</h1>
+            <h1 style="display: none">小红书实践心得</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 个月前
+                  本文最后更新于：3 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <p><strong>影响范围</strong><br />
-3.2.2 3.2.5 3.1.2 2.6.8</p>
-<p><strong>不受影响的版本</strong><br />
-3.3.2</p>
-<p><strong>漏洞原理</strong><br />
-在FFMpeg2.X 由于在解析HTTP Live Streaming流媒体m3u8文件处理不当，可导致SSRF漏洞与任意文件读取漏洞。当网站允许用户上传多媒体文件，并使用FFMpeg进行处理时会触发该漏洞。</p>
-<p>这个漏洞有两个CVE编号，分别是CVE-2016-1897和CVE-2016-1898，它们两个的区别在于读取文件的行数，CVE-2016-1897只能读取文件的第一行，而CVE-2016-1898可以读取文件任意行，原理基本一样。</p>
-<p>ffmpeg可处理HLS播放列表，而播放列表中已知可包含外部文件的援引。攻击者可以借由该特性，利用avi文件中的GAB2字幕块，可以通过XBIN codec获取到视频转换网站的本地文件。</p>
-<p><strong>Exp</strong><br />
-<a target="_blank" rel="noopener" href="http://github.com/neex/ffmpeg-avi-m3u-xbin">github.com/neex/ffmpeg-avi-m3u-xbin</a></p>
-<p><strong>执行效果</strong><br />
-<img src="/images/test.png" srcset="/img/loading.gif" lazyload alt="" /></p>
-<p><strong>漏洞危害</strong></p>
-<p>该漏洞可导致读取本地任意文件，危害较大,Google,Yahoo,Youtube等门户、视听网站以及支持流转码服务的业务已被曝出存在该漏洞。国内支持流转码的网站也可能有存在该漏洞的风险。</p>
+              <p>大家好，我是四两<br />
+一只爱破圈的白帽黑客</p>
+<p>平常呢，比较爱玩，爱思考，也爱钻研<br />
+任何有知识有深度的领域都会让我感觉到多巴胺爆炸，让我有一探究竟的想法<br />
+这次呢，轮到小红书了</p>
+<p>说起来，我算是完全萌新，运营啊，ip啊这种概念都只是在影视作品中听说过，<br />
+没有亲身实践的经历，所以感觉发的作品吧质量有限，离预期也很远。</p>
+<p>最开始呢，我想搞一个黑客技术类的方向，聊聊攻防相关的生活、网络攻击大概是怎样、电脑、服务器如何防护等等<br />
+<img src="/images/tech.jpg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><img src="/images/tech2.jpg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p>参考技术网站呢，画风类似：<br />
+<a target="_blank" rel="noopener" href="https://www.1aq.com/?sc=b">https://www.1aq.com/?sc=b</a></p>
+<p><img src="/images/wljd.jpg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p>不过考虑到有些攻击方式要是讲很细的话容易犯事儿戴镯子，再加上懒吧，账号就愈发生活化了。<br />
+发了几条生活状态吧，感觉阅读量、点赞评论都效果平平<br />
+后来在网上看了一篇文章，有感写了一篇《网络暴力何时了》，吐槽了一堆看到的社会问题，发现反而成账号的爆款了。<br />
+到目前是888阅读量、19点赞、28点评<br />
+我就想着吧，可能是这个话题吧，相对于专业号那种受众模式，生活号那种泛泛的话题吧，读者可能更有参与感<br />
+每个人都可以发表自己的想法、观点进行互动，同时话题本身又有共鸣感。</p>
+<p>基于这个状态，我想到了一种模式，是不是可以写一种开放性互动性的题材呢，让读者通过评论方式参与到文章创作本身，让他们更有参与感，会不会更好呢？</p>
 
             </div>
             <hr>
@@ -252,17 +259,10 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                      <a class="hover-with-bg" href="/categories/%E5%A4%8D%E7%9B%98/">复盘</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/span-class-note-note-primary-FFmpeg-span-span-class-note-note-warning-CVE-span/"><span class="note note-primary">FFmpeg</span> <span class="note note-warning">CVE</span></a>
-                    
-                  </div>
                 
               </div>
               
@@ -277,15 +277,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/28/2022-1-28%E5%A4%8D%E7%9B%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2022-01-28复盘</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/01/28/MAE%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">去除马赛克神器MAE相关学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
